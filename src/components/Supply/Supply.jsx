@@ -7,13 +7,13 @@ import Lo_4 from "../../assets/Total.png";
 const SupplySection = () => {
   return (
     <div className="supply bg-gray-200">
-      <div className="flex justify-around py-4 md:flex-wrap md:flex-nowrap">
+      <div className="flex justify-around py-4 flex-wrap">
         {/* First Item */}
         <div
           className="flex items-center flex-col gap-4 md:w-1/4 md:flex-grow"
           style={{ flexBasis: "200px" }}
         >
-          <img src={Lo_1} alt="" />
+          <img src={Lo_1} alt="" className="max-sm:mt-5" />
           <div className="supply-text">
             <h5 className="text-xl">Get Free Shipping</h5>
             <p>Save QR 100 or more </p>
@@ -25,7 +25,7 @@ const SupplySection = () => {
           className="flex items-center flex-col gap-4 md:w-1/4 md:flex-grow"
           style={{ flexBasis: "200px" }}
         >
-          <img src={Lo_2} alt="" />
+          <img src={Lo_2} alt="" className="max-sm:mt-5" />
           <div className="supply-text">
             <h5 className="text-xl">Support Online</h5>
             <p>Call : +974 4400 8888</p>
@@ -37,8 +37,8 @@ const SupplySection = () => {
           className="flex items-center flex-col gap-4 md:w-1/4 md:flex-grow"
           style={{ flexBasis: "200px" }}
         >
-          <img src={Lo_3} alt="" />
-          <div className="supply-text">
+          <img src={Lo_3} alt="" className="max-sm:mt-5" />
+          <div className="supply-text text-center">
             <h5 className="text-xl">Discount</h5>
             <p>20% off on selections </p>
           </div>
@@ -49,8 +49,8 @@ const SupplySection = () => {
           className="flex items-center flex-col gap-4 md:w-1/4 md:flex-grow"
           style={{ flexBasis: "200px" }}
         >
-          <img src={Lo_4} alt="" />
-          <div className="supply-text">
+          <img src={Lo_4} alt="" className="max-sm:mt-5" />
+          <div className="supply-text text-center">
             <h5 className="text-xl">Money Back</h5>
             <p>100% Money Guarantee </p>
           </div>

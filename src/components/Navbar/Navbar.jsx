@@ -8,15 +8,15 @@ const Navbar = () => {
 
   return (
     <>
-    <div className='navbar px-10 md:w-[100%]'>
+    <div className='navbar px-10 '>
         
         <div className='flex justify-between mt-3'>
             {/* navbar logo */}
-            <div className='navbar-logo md:w-[100%]'>
+            <div className='navbar-logo max-sm:w-[100px] max-sm:mt-3'>
                 <img src={Logo} alt="" />
             </div>
             {/* navbar menu */}
-            <ul className={`nav-menu flex gap-6 mt-3 cursor-pointer text-base font-semibold text-gray-400 max-md:hidden`}>
+            <ul className={`nav-menu flex gap-6 mt-3 cursor-pointer text-base font-semibold text-gray-400 max-xl:hidden`}>
                 <li>Home</li>
                 <li>All Offers</li>
                 <li>Partners</li>
@@ -25,7 +25,7 @@ const Navbar = () => {
             </ul>
             {/* navbar search bar */}
             <div className='reletive'>
-                <div className='group max-md:hidden'>
+                <div className='group max-xl:hidden'>
                     <form className='exam mt-2'>
                     <input type="text"  placeholder='Search' className='w-[250px] sm:w[200px] rounded-md border border-gray-600 pl-6 py-1'  />
                     </form>    
@@ -33,14 +33,14 @@ const Navbar = () => {
             </div>
             {/* navbar-icon */}
             <div className='navbar-icon flex gap-7 text-xl mt-3 text-gray-500 max-md:hidden'>
-                <a href=""><i className="fa-solid fa-bell"></i></a>
-                <a href=""><i className="fa-solid fa-heart"></i></a>
-                <a href=""><i className="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i className="fa-solid fa-bell max-xl:hidden"></i></a>
+                <a href=""><i className="fa-solid fa-heart max-xl:hidden"></i></a>
+                <a href=""><i className="fa-solid fa-cart-shopping max-xl:hidden"></i></a>
             </div>
             {/* navber last */}
-            <div className='navbar-face flex gap-4 cursor-pointer max-md:hidden'>
-                <img src={Face} alt="" className='w-12 h-12' />
-                <h5 className='font-bold text-emerald-500 text-xl mt-2'>100 Points</h5>
+            <div className='navbar-face flex gap-4 cursor-pointer max-xl:text-sm max-sm:'>
+                <img src={Face} alt="" className='w-12 h-12 max-sm:w-[50px] max-sm:h-[50px]' />
+                <h5 className='font-bold text-emerald-500 text-sm mt-2 max-sm:mt-4'>100 Points</h5>
             </div>
         </div>
     </div>

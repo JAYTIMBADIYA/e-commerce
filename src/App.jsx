@@ -32,7 +32,7 @@ const App = () => {
     <News/>
     <Numbers/>
     <Register/>
-    <Footer/>
+    <Footer/> 
 
       
     </>

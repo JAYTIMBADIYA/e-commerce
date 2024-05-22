@@ -7,12 +7,12 @@ const Footer = () => {
   return (
     <>
     <div className='footer bg-[#312B3E] px-10 py-10 '>
-            <div className='flex justify-between '>
+            <div className='md:grid grid-cols-2 justify-between '>
                 <div>
                     <img src={Logo} alt="" />
                 </div>
                 <div>
-                    <ul className='flex gap-36 text-xl text-[#999CAD] mt-3 font-semibold'>
+                    <ul className='md:grid grid-cols-5 gap-20 text-sm text-[#999CAD] mt-3 font-semibold max:xl:hidden'>
                         <li><a href="" className='text-[#1CC0A0]'>Home</a></li>
                         <li><a href="">All Offers</a></li>
                         <li><a href="">Partners</a></li>
@@ -24,13 +24,13 @@ const Footer = () => {
             </div>
 
             <div>
-                <div className='mt-4 flex gap-10'>
-                    <div className=' basis-1/5'>
+                <div className='mt-4 md:grid grid-cols-5 gap-10'>
+                    <div className=''>
                         <p className='text-white'>Check latest promotions and discounts at unbeatable prices. <br />
                          Be a member now.</p>
-                         <form className='flex gap-3 mt-5'>
-                            <input type="text" placeholder='Your emails' className='py-2 pl-2 px-10 rounded-md' />
-                            <button className='py-2 px-5 bg-[#1CC0A0] text-white rounded-md'>Subscribe</button>
+                         <form className='md:grid grid-cols-2 gap-3 mt-5 max-sm:gap-1'>
+                            <input type="text" placeholder='Your emails' className='py-2 pl-2 px-10 rounded-md max-md:px-5 max-sm:px-' />
+                            <button className='py-2 px-5 bg-[#1CC0A0] text-white rounded-md max-sm:px-1'>Subscribe</button>
                          </form>
                          <p className='text-white mt-5'>Download app:</p>
                          <div className='flex gap-4 mt-3 w-[100px]'>
@@ -47,8 +47,8 @@ const Footer = () => {
                          </div>
                     </div>
 
-                    <div className="basis-1/5 ml-12">
-                        <div>
+                    <div className=" ml-12 max-sm:ml-0">
+                        <div className='max-sm:ml-1'>
                             <h4 className='text-xl font-semibold text-white'>About us</h4>
                             <ul className='mt-3 leading-[45px] text-md text-[#999CAD] '>
                                 <li>About us</li>
@@ -59,7 +59,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="basis-1/5">
+                    <div className="">
                     <div>
                             <h4 className='text-xl font-semibold text-white'>Our Supports</h4>
                             <ul className='mt-3 leading-[45px] text-md text-[#999CAD] '>
@@ -71,7 +71,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="basis-1/5">
+                    <div className="">
                     <div>
                             <h4 className='text-xl font-semibold text-white'>Services</h4>
                             <ul className='mt-3 leading-[45px] text-md text-[#999CAD] '>
@@ -84,7 +84,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="basis-1/5">
+                    <div className="">
                     <div>
                             <h4 className='text-xl font-semibold text-white'>Merchants Offers</h4>
                             <ul className='mt-3 leading-[45px] text-md text-[#999CAD] '>

@@ -12,7 +12,7 @@ const Popular = () => {
     <div className='popular mx-9'>
         <h3 className='text-4xl font-semibold'>Popular Category</h3>
         <div className='my-6'>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="sm:grid grid-cols-3 gap-3 md:grid-cols-3 sm:grid-cols-2">
                 <div className='text-center py-32 item-center' style={{ backgroundImage: `url(${Cat_1})` }}>
                     <p className='text-white text-2xl font-semibold'>Products</p>
                 </div>

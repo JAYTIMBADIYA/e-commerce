@@ -33,20 +33,46 @@ const Merchants = () => {
     <div>
         <Swiper
        modules={[Navigation,]}
-       spaceBetween={0}
+       spaceBetween={10}
        slidesPerView={7}
        navigation
+       breakpoints={{
+        270: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        534: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 7,
+          spaceBetween: 40,
+        },
+      }}
     >
       <SwiperSlide className='text-black'>
-        <img src={A1} alt="" className=''/>
+        <img src={A1} alt="" className='max-sm:w-[100%] max-sm:h-[auto]'/>
         <p className='text-sm text-center mt-4 text-gray-600'>All Category</p>
       </SwiperSlide>
       <SwiperSlide className='text-black'>
-        <img src={A2} alt="" />
+        <img src={A2} alt="" className='max-sm:w-[100%] max-sm:h-[auto]'/>
         <p className='text-sm text-center mt-5  text-gray-600'>Products</p>
       </SwiperSlide>
       <SwiperSlide className='text-black'>
-        <img src={A3} alt="" />
+        <img src={A3} alt="" className='max-sm:w-[100%] max-sm:h-[auto]'/>
         <p className='text-sm text-center mt-5  text-gray-600'>Resturents</p>
 
       </SwiperSlide>
