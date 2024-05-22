@@ -1,42 +1,39 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import Supply from './components/Supply/Supply'
-import Partners from './components/Partners/Partners'
-import Rewarded from './components/Rewarded/Rewarded'
-import Slider from './components/Slider/Slider'
-import About from './components/About/About'
-import Popular from './components/Popular/Popular'
-import Merchants from './components/Merchants/Merchants'
-import Stores from './components/Stores/Stores'
-import Promotion from './components/Promotion/Promotion'
-import News from './components/News/News'
-import Numbers from './components/Numbers/Numbers'
-import Register from './components/Register/Register'
-import Footer from './components/Footer/Footer'
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/home";
+import AllOffer from "./components/AllOffer";
+import ViewOffer from "./components/AllOffer/ViewOffer/ViewOffer";
+import Partner from "./components/Partner/index.jsx";
+import Mainkfc from "./components/Mainkfc/index.jsx";
+import Kfc2 from "./components/Mainkfc/Kfc2/Kfc2.jsx";
+import KfcPro from "./components/Mainkfc/KfcPro/KfcPro.jsx";
+import Contact from "./components/Contact/index.jsx";
+import Information from "./components/Information/index.jsx";
+import Setting from "./components/Setting/index.jsx";
 const App = () => {
   return (
-    <>
-    <Navbar/>
-    <Hero/>
-    <Supply/>
-    <Partners/>
-    <Rewarded/>
-    <Slider/>
-    <About/>
-    <Popular/>
-    <Merchants/>
-    <Stores/>
-    <Promotion/>
-    <News/>
-    <Numbers/>
-    <Register/>
-    <Footer/> 
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/alloffers" element={<AllOffer />} />
+        <Route path="/viewoffer" element={<ViewOffer />} />
+        <Route path="/partner" element={<Partner />} />
+        <Route path="/merchants" element={<Mainkfc />}/>
+        <Route path="/Kfc2" element={<Kfc2 />} />
+        <Route path="/KfcPro" element={<KfcPro />} />
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/Information" element={<Information/>}/>
+        <Route path="/Setting" element={<Setting/>}/>
 
-      
-    </>
-  )
-}
 
-export default App
+
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
+};
+
+export default App;

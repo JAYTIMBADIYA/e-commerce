@@ -2,8 +2,26 @@ import React from 'react'
 import Logo from "../../assets/Logo.png"
 import Abo3 from '../../assets/GooglePlay.png'
 import Abo4 from '../../assets/App Store.png'
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (route) => {
+    switch (route) {
+        case 'Setting':
+            navigate('/Setting');
+            break;
+        default:
+            // Handle default case if needed
+            break;
+    }
+};
+
+
+
+ 
+
   return (
     <>
     <div className='footer bg-[#312B3E] px-10 py-10 '>
@@ -87,12 +105,12 @@ const Footer = () => {
                     <div className="">
                     <div>
                             <h4 className='text-xl font-semibold text-white'>Merchants Offers</h4>
-                            <ul className='mt-3 leading-[45px] text-md text-[#999CAD] '>
+                            <ul className='mt-3 leading-[45px] text-md text-[#999CAD]'>
                                 <li>Discounted Products</li>
                                 <li>Trending Offers</li>
                                 <li>Latest Promotions</li>
                                 <li>Clearance Sale</li>
-                                <li>25% - 50% Sale</li>
+                                <li><a href="" onClick={() => handleClick('Setting')}> Setting</a></li>
                             </ul>
                         </div>
                     </div>      
