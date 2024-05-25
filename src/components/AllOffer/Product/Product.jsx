@@ -13,15 +13,7 @@ import Data from '../../../assets/data'
 
 import { useNavigate } from 'react-router-dom';
 
-
-
-
-
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-
-
-
 
 const Product = ({item}) => {
 

@@ -175,7 +175,6 @@ const ViewOffer = ({data,index}) => {
               </div>
               <div>
                 <button className="mt-1 px-10 py-3 bg-[#1CC0A0] text-white font-semibold rounded-md">
-                  {" "}
                   Add to cart
                 </button>
               </div>

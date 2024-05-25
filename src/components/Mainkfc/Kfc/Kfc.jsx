@@ -54,8 +54,8 @@ const Kfc = () => {
           </div>
           <div className="basis-1/3">
             <div>
-                <div>
-                    <img src={Map} alt="" className="w-[-webkit-fill-available]" />
+                <div className="w-[100%] rounded-xl">
+                    <iframe className="w-[100%] h-[200px] rounded-2xl" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q=Qatar+(Ecommerce)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe>
                 </div>
                 <div className="mt-7 flex gap-5">
                     <div>

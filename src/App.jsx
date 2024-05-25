@@ -12,6 +12,10 @@ import KfcPro from "./components/Mainkfc/KfcPro/KfcPro.jsx";
 import Contact from "./components/Contact/index.jsx";
 import Information from "./components/Information/index.jsx";
 import Setting from "./components/Setting/index.jsx";
+import Mycard from "./components/Mycard/index.jsx";
+import Bell from "./components/Bell/index.jsx";
+import Mylist from "./components/Mylist/index.jsx";
+import Subpart from "./components/Subpart/index.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -27,9 +31,10 @@ const App = () => {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/Information" element={<Information/>}/>
         <Route path="/Setting" element={<Setting/>}/>
-
-
-
+        <Route path="/MyCard" element={<Mycard />} />
+        <Route path="/Bell" element={<Bell />}/>
+        <Route path="/Mylist" element={<Mylist />}/>
+        <Route path="/subitem1" element={<Subpart />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

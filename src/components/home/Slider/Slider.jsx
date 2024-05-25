@@ -70,8 +70,8 @@ export default function Slider({props,img}) {
                 <div className='relative shadow-xl rounded-b-lg'>
                     <img src={img_1} alt="" />
                     <div className='flex justify-between'>
-                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-44 left-5 shadow-xl max-sm:top-32 '  src={G_1} alt="" />
-                        <img className='w-10 h-10 p-2 absolute right-5 top-48 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
+                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-56 left-5 shadow-xl max-sm:top-32 '  src={G_1} alt="" />
+                        <img className='w-10 h-10 p-2 absolute right-5 top-60 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
                     </div>
                     <div className="slider-text flex justify-between mx-5 mt-10 pb-3">
                         <h1 className='text-black font-semibold'>Burger King</h1>
@@ -92,8 +92,8 @@ export default function Slider({props,img}) {
         <div className='relative shadow-xl rounded-b-lg'>
                     <img src={img_2} alt="" />
                     <div className='flex justify-between'>
-                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-44 left-5 shadow-xl max-sm:top-32 '  src={G_2} alt="" />
-                        <img className='w-10 h-10 p-2 absolute right-5 top-48 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
+                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-56 left-5 shadow-xl max-sm:top-32 '  src={G_2} alt="" />
+                        <img className='w-10 h-10 p-2 absolute right-5 top-60 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
                     </div>
                     <div className="slider-text flex justify-between mx-5 mt-10 pb-3">
                         <h1 className='text-black font-semibold'>Starbucks</h1>
@@ -114,8 +114,8 @@ export default function Slider({props,img}) {
         <div className='relative shadow-xl rounded-b-lg'>
                     <img src={img_3} alt="" />
                     <div className='flex justify-between'>
-                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-44 left-5 shadow-xl max-sm:top-32 '  src={G_3} alt="" />
-                        <img className='w-10 h-10 p-2 absolute right-5 top-48 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
+                        <img className='w-16 h-16 p-2 bg-white rounded-full absolute top-56 left-5 shadow-xl max-sm:top-32 '  src={G_3} alt="" />
+                        <img className='w-10 h-10 p-2 absolute right-5 top-60 top bg-white rounded-full shadow-xl max-sm:top-36 '  src={Noti} alt="" />
                     </div>
                     <div className="slider-text flex justify-between mx-5 mt-10 pb-3">
                         <h1 className='text-black font-semibold'>Nike</h1>
@@ -133,11 +133,11 @@ export default function Slider({props,img}) {
         </SwiperSlide>
 
         <SwiperSlide>
-            <div className='relative shadow-xl rounded-b-lg'>
+            <div className='relative shadow-xl rounded-b-lg my-5'>
                     <img src={img_4} alt="" />
                     <div className='flex justify-between'>
-                        <img className='w-16 h-16 bg-contain p-1 bg-white rounded-full absolute top-48 left-5 shadow-xl max-sm:top-36 '  src={G_7} alt="" />
-                        <img className='w-10 h-10 p-2 absolute right-5 top-52 top bg-white rounded-full shadow-xl max-sm:top-40'  src={Noti} alt="" />
+                        <img className='w-16 h-16 bg-contain p-1 bg-white rounded-full absolute top-56 left-5 shadow-xl max-sm:top-36 '  src={G_7} alt="" />
+                        <img className='w-10 h-10 p-2 absolute right-5 top-60 top bg-white rounded-full shadow-xl max-sm:top-40'  src={Noti} alt="" />
                     </div>
                     <div className="slider-text flex justify-between mx-5 mt-10 pb-3">
                         <h1 className='text-black font-semibold'>Burger King</h1>

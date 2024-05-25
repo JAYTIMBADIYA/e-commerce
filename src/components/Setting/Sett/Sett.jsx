@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import Switch from "@mui/material/Switch";
+import { useNavigate } from "react-router-dom";
+
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
@@ -34,16 +36,29 @@ const Sett = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleClick = (route) => {
+    switch (route) {
+        case 'Mycard':
+            navigate('/Mycard');
+            break;
+        default:
+            // Handle default case if needed
+            break;
+    }
+};
+
   return (
     <>
       <div className="h-[auto]">
-        <div className="mx-[160px]">
+        <div className="mx-[160px] max-md:mx-[30px]">
           <div>
-            <div className="flex gap-2 font-semibold my-9 max-md:mx-[20px]">
-              <p className="text-[#DDDFE4]">Home /</p>
-              <p className="text-[#DDDFE4]">Account /</p>
-              <p className="text-[#1CC0A0]">Settings /</p>
-            </div>
+            <ul className="flex gap-2 font-semibold my-9 max-md:mx-[20px]">
+              <li className="text-[#DDDFE4]"><a href=""> Home /</a> </li>
+              <li className="text-[#DDDFE4]"><a href="" onClick={() => handleClick('Mycard')}>Account /</a></li>
+              <li className="text-[#1CC0A0]"><a href="">Settings </a></li>
+            </ul>
 
             <div className="flex gap-5 mt-5 text-2xl font-semibold">
               <a href="">
@@ -56,11 +71,11 @@ const Sett = () => {
               <div className="">
                 {intro.map((item, index) => (
                   <div
-                    className="w-[70%] p-6 my-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg"
+                    className="w-[70%] max-md:w-[100%] p-6 my-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg"
                     key={index}
                   >
                     <div className="flex justify-between">
-                      <p className="text-xl font-semibold">{item.notihead}</p>
+                      <p className="text-xl font-semibold max-sm:text-[15px ]">{item.notihead}</p>
                       <Switch
                         {...label}
                         checked={switchStates[index]}
@@ -68,7 +83,7 @@ const Sett = () => {
                       />
                     </div>
                     <div>
-                      <p className="mt-5 text-[#999CAD] text-[15px]">
+                      <p className="mt-5 text-[#999CAD] text-[15px] max-sm:hidden">
                         {item.dis}
                       </p>
                     </div>

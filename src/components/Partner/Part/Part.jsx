@@ -28,6 +28,7 @@ const Part = () => {
       <Slider/>
       <Slider/>
       <Slider/>
+      
     </>
   );
 };

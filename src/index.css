@@ -10,5 +10,10 @@ body {
     margin: 0;
     padding: 0;
   }
+
+.swiper-slide {
+    padding: 10px 20px;
+    margin-right: 0;
+}
   
 .slick-slide{outline: none !important;}
