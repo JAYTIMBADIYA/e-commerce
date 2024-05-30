@@ -11,6 +11,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const Data = [
     {
+      id:1,
       logo1: Cato_2,
       lotext: "Burger King",
       dis: "-20%",
@@ -27,6 +28,7 @@ const Data = [
       ico3_text: "View",
     },
     {
+      id:2,
       logo1: Cato_3,
       lotext: "Burger King",
       dis: "+10 ",
@@ -43,6 +45,7 @@ const Data = [
       ico3_text: "View",
     },
     {
+      id:3,
       logo1: Cato_2,
       lotext: "Burger King",
       dis: "-20%",
@@ -59,6 +62,7 @@ const Data = [
       ico3_text: "View",
     },
     {
+      id:4,
       logo1: Cato_3,
       lotext: "Burger King",
       dis: "+10 ",
@@ -75,6 +79,7 @@ const Data = [
       ico3_text: "View",
     },
     {
+      id:5,
       logo1: Cato_2,
       lotext: "Burger King",
       dis: "-20%",
@@ -91,6 +96,7 @@ const Data = [
       ico3_text: "View",
     },
     {
+      id:6,
       logo1: Cato_3,
       lotext: "Burger King",
       dis: "+10",

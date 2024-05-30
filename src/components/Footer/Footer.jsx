@@ -2,21 +2,8 @@ import React from 'react'
 import Logo from "../../assets/Logo.png"
 import Abo3 from '../../assets/GooglePlay.png'
 import Abo4 from '../../assets/App Store.png'
-import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const navigate = useNavigate();
-
-  const handleClick = (route) => {
-    switch (route) {
-        case 'Setting':
-            navigate('/Setting');
-            break;
-        default:
-            // Handle default case if needed
-            break;
-    }
-};
 
 
 
@@ -110,7 +97,7 @@ const Footer = () => {
                                 <li>Trending Offers</li>
                                 <li>Latest Promotions</li>
                                 <li>Clearance Sale</li>
-                                <li><a href="" onClick={() => handleClick('Setting')}> Setting</a></li>
+                                <li>Setting</li>
                             </ul>
                         </div>
                     </div>      

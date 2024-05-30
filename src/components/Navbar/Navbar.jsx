@@ -9,12 +9,15 @@ import Noto from "../../assets/Noto.png";
 const Navbar = () => {
   
   const [activeMenuItem, setActiveMenuItem] = useState("/");
-  const [showMenu, setShowMenu] = useState(0);
+  // const [showMenu, setShowMenu] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showBellMenu, setShowBellMenu] = useState(false);
   const [clickedInside, setClickedInside] = useState(false);
   const [showPartnerPopup, setShowPartnerPopup] = useState(false);
+  const [showFacePopup, setShowFacePopup] = useState(false);
+  const [activeFaceMenuItem, setActiveFaceMenuItem] = useState("");
+  const [activeIcon, setActiveIcon] = useState("");
 
   const navigate = useNavigate();
   const bellMenuRef = useRef(null);
@@ -70,6 +73,7 @@ const Navbar = () => {
 
   const handleItemClick = (route) => {
     setActiveMenuItem(route);
+    setActiveFaceMenuItem(route);
     setShowPopup(false);
     setSearchTerm("");
     navigate(route)
@@ -78,6 +82,7 @@ const Navbar = () => {
   const handleBellIconClick = (event) => {
     setClickedInside(true);
     setShowBellMenu(!showBellMenu);
+    setActiveIcon("bell");
   };
 
   const handleBellMenuClick = (event) => {
@@ -181,6 +186,9 @@ const Navbar = () => {
         case 'Mylist':
             navigate('/Mylist');
             break;
+        case 'Mycart':
+            navigate('/Mycart');
+            break;    
         default:
             // Handle default case if needed
             break;
@@ -316,31 +324,59 @@ const Navbar = () => {
           </div>
           {/* navbar-icon */}
           <div className="navbar-icon flex gap-7 text-xl mt-3 text-gray-500 max-md:hidden">
-            <a href="#"  onClick={handleBellIconClick} className="relative">
+            <a href="#"  onClick={handleBellIconClick} className={`relative ${activeIcon === "bell" ? "text-[#43385B]" : ""}`}>
               <i className="fa-solid fa-bell max-xl:hidden" ></i>
               {notifications.length > 0 && (
-                <span className="absolute top-[-10px] right-[-10px] inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+                <span className="absolute top-[-10px] right-[-10px] inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#1CC0A0] rounded-full">
                   {notifications.length}
                 </span>
               )}
             </a>
-            <a href="" onClick={() => likeClick('Mylist')}>
+            <a href="#" onClick={() => {likeClick('Mylist'); setActiveIcon('Mylist');}} className={`relative ${activeIcon === "Mylist" ? "text-[#43385B]" : ""}`}>
               <i className="fa-solid fa-heart max-xl:hidden"></i>
             </a>
-            <a href="">
+            <a href="#" onClick={() => {likeClick('Mycart'); setActiveIcon('Mycart');}} className={`relative ${activeIcon === "Mycart" ? "text-[#43385B]" : ""}`} >
               <i className="fa-solid fa-cart-shopping max-xl:hidden"></i>
             </a>
           </div>
           {/* navber last */}
-          <div className="navbar-face flex gap-4 cursor-pointer max-xl:text-sm max-sm:">
+          <div className="navbar-face flex gap-4 cursor-pointer max-xl:text-sm max-sm:" onMouseEnter={() => setShowFacePopup(true)}
+            onMouseLeave={() => setShowFacePopup(false)}>
             <img
               src={Face}
               alt="Face"
               className="w-12 h-12 max-sm:w-[50px] max-sm:h-[50px]"
             />
-            <h5 className="font-bold text-emerald-500 text-sm mt-2 max-sm:mt-4">
+            <h5 className="font-bold text-emerald-500 text-[16px] mt-3 max-sm:mt-4">
               100 Points
             </h5>
+            {showFacePopup && (
+              <div className="absolute top-16 right-0 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
+                <ul>
+                  <li>
+                    <a href="#" onClick={() => handleItemClick("/profile")} className={`block px-4 py-2 font-semibold ${
+                        activeFaceMenuItem === "/profile" ? "text-[#1CC0A0]" : "text-gray-600"
+                      } hover:bg-[#C4EEE6]`}>
+                      Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={() => handleItemClick("/settings")} className={`block px-4 py-2 font-semibold ${
+                        activeFaceMenuItem === "/settings" ? "text-[#1CC0A0]" : "text-gray-700"
+                      } hover:bg-[#C4EEE6]`}>
+                      Settings
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={() => handleItemClick("/mycard")} className={`block px-4 py-2 font-semibold ${
+                        activeFaceMenuItem === "/mycard" ? "text-[#1CC0A0]" : "text-gray-700"
+                      } hover:bg-[#C4EEE6]`}>
+                      Mycard
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

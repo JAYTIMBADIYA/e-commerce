@@ -1,22 +1,7 @@
 import React from "react";
 import Writing from "../../../assets/image-101.png";
 
-import { useNavigate } from "react-router-dom";
-
 const Conta = () => {
-  const navigate = useNavigate();
-
-  const handleClick = (route) => {
-    switch (route) {
-      case "Information":
-        navigate("/Information");
-        break;
-
-      default:
-        // Handle default case if needed
-        break;
-    }
-  };
 
   return (
     <div className="conta h-[auto]">
@@ -72,7 +57,6 @@ const Conta = () => {
               ></textarea>
 
               <button
-                onClick={() => handleClick("Information")}
                 className="bg-[#1CC0A0] text-white px-5 py-2 rounded-md mt-8 w-[25%] ml-[200px] mb-10 max-md:ml-[60px] max-md:w-[50%]"
               >
                 Submit

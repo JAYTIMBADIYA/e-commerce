@@ -1,37 +1,61 @@
 import React, { useRef } from "react";
+import { useLocation } from 'react-router-dom';
 import Slider from "react-slick";
 import kfc from "../../../assets/image 92.png";
 import king from '../../../assets/Whopper Wednrsday.png'
 import Lo1 from "../../../assets/lo-1.png";
 import Lo2 from '../../../assets/Burger_King_logo_(1999) 1.png'
+// import { useCart } from "../../Mycart/CartContext/CartContext";
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const ViewOffer = ({data,index}) => {
-  const [count, setCount] = useState(1);
+const ViewOffer = () => {
+  const location = useLocation();
+  const { data, index } = location.state;
+  const navigate = useNavigate();
+  const [cartItems, setCartItems] = useState([]);
 
-  const decNum = () => {
+  const [count, setCount] = useState(1);
+  const [totalValue, setTotalValue] = useState(10); 
+  
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+    // Redirect to the cart page after adding the item
+    navigate('/cart');
+  };
+  const handleIncrement = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+    setTotalValue(10 * newCount); // Assuming each unit is 10 QAR
+  };
+
+  const handleDecrement = () => {
     if (count > 1) {
-      setCount(count - 1);
-    } else {
-      setCount(1);
+      const newCount = count - 1;
+      setCount(newCount);
+      setTotalValue(10 * newCount); // Assuming each unit is 10 QAR
     }
   };
 
-  const navigate = useNavigate();
+//   const imgdata = [
+//     {
+//         piclogo: Lo1,
+//         pic: kfc,
+//     },
+//     {
+//         piclogo2: Lo2,
+//         pic2: king,
+//     }
+// ]
 
-
-  const imgdata = [
-    {
-        piclogo: Lo1,
-        pic: kfc,
-    },
-    {
-        piclogo2: Lo2,
-        pic2: king,
-    }
-]
+const imgdata = [
+  { cen_img: data.cen_img },
+  { cen_img: data.cen_img },
+  { cen_img: data.cen_img },
+  { cen_img: data.cen_img },
+  { cen_img: data.cen_img },
+];
 
 
 
@@ -76,8 +100,6 @@ const ViewOffer = ({data,index}) => {
   }
 
 
-
-
   return (
     <div className="viewoffer h-[auto] mx-9 my-3 md:mx-2">
       <div>
@@ -104,7 +126,7 @@ const ViewOffer = ({data,index}) => {
           <div>
             <div className="relative ml-10">
               <div  className="flex gap-4">
-                <img src={Lo1} alt="" className="h-[60px] w-[60px] mt-3 ml-5" />
+                <img src={data.logo1} alt="" className="h-[60px] w-[60px] mt-3 ml-5" />
                 <h1 className="mt-7 font-semibold">KFC</h1>
               </div>
               <a href="">
@@ -112,69 +134,46 @@ const ViewOffer = ({data,index}) => {
               </a>
             </div>
             <div className="p-3 ">
-              {imgdata.map((item, index) => (
-              <div className="sliderwrapper p-5" key={index} >
-              <Slider {...productSliderOptions} ref={ProductSliderBig} className="sliderBig mb-3">
-                <div className="item ml-10">
-                    <img src={item.pic} alt=""  className="max-md:mr-5"/>
-                </div> 
-                <div className="item ml-10">
-                    <img src={item.pic} alt=""  className="max-md:mr-5"/>
-                </div> 
-                <div className="item ml-10">
-                    <img src={item.pic} alt=""  className="max-md:mr-5"/>
-                </div> 
-                <div className="item ml-10">
-                    <img src={item.pic} alt="" className="max-md:mr-5" />
-                </div> 
-                <div className="item ml-10">
-                    <img src={item.pic} alt=""  className="max-md:mr-5"/>
-                </div> 
-              </Slider>
-              <Slider {...productSliderSmlOptions} ref={ProductSliderSml} className="sliderSml mt-10 pr-3">
-                <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(1)}>
-                    <img src={item.pic} alt="" className=""/>
-                </div> 
-                <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(2)}>
-                    <img src={item.pic} alt="" />
-                </div> 
-                <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(3)}>
-                    <img src={item.pic} alt="" />
-                </div> 
-                <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(4)}>
-                    <img src={item.pic} alt="" />
-                </div> 
-                <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(5)}>
-                    <img src={item.pic} alt="" />
-                </div> 
-              </Slider>
+            <div className="sliderwrapper p-5">
+                <Slider {...productSliderOptions} ref={ProductSliderBig} className="sliderBig mb-3">
+                  {imgdata.map((item, index) => (
+                    <div className="item ml-28" key={index}>
+                      <img src={item.cen_img} alt="" className="max-md:mr-5 w-[400px] h-[300px]" />
+                    </div>
+                  ))}
+                </Slider>
+                <Slider {...productSliderSmlOptions} ref={ProductSliderSml} className="sliderSml mt-10 pr-3">
+                  {imgdata.map((item, index) => (
+                    <div className="item shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" onClick={() => goToSlide(index)} key={index}>
+                      <img src={item.cen_img} alt="" className="" />
+                    </div>
+                  ))}
+                </Slider>
               </div>
-            ))}
-
             </div>
           </div>
 
           <div className="ml-16 max-md:ml-1">
             <div className="">
-              <p className="font-semibold text-2xl">Bucket L</p>
+              <p className="font-semibold text-2xl">{data.head}</p>
               <h6 className="text-[#999CAD] mt-6">price:</h6>
-              <h5 className="font-semibold">10 QAR</h5>
+              <h5 className="font-semibold">{totalValue}</h5>
             </div>
             <div className="flex flex-wrap mt-7 gap-20">
-              <div className="flex  gap-10 text-2xl  bg-[#F5F5F5] rounded-full w-[180px] p-1 justify-center text-center">
+              <div className="additem flex  gap-10 text-2xl  bg-[#F5F5F5] rounded-full w-[180px] p-1 justify-center text-center">
                 <button
                   className="p-1 rounded-full bg-white"
-                  onClick={() => setCount(count + 1)}
+                  onClick={handleIncrement}
                 >
                   <i class="fa-solid fa-plus"></i>
                 </button>
                 <p className="mt-1 font-semibold">{count}</p>
-                <button className="p-1 rounded-full bg-white" onClick={decNum}>
+                <button className="p-1 rounded-full bg-white" onClick={handleDecrement}>
                   <i class="fa-solid fa-minus"></i>
                 </button>
               </div>
               <div>
-                <button className="mt-1 px-10 py-3 bg-[#1CC0A0] text-white font-semibold rounded-md">
+                <button className="mt-1 px-10 py-3 bg-[#1CC0A0] text-white font-semibold rounded-md" onClick={() => addToCart(item)}>
                   Add to cart
                 </button>
               </div>
@@ -183,11 +182,7 @@ const ViewOffer = ({data,index}) => {
               <h1>Overview</h1>
               <hr className="h-1 bg-[#1CC0A0] w-14" />
               <p className="w-[70%] mt-5 text-[#999CAD] font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. A cras
-                aliquam orci turpis. Sagittis, velit quam lectus euismod.
-                Molestie purus risus, faucibus pellentesque arcu non, morbi sed.
-                Lectus odio in mattis eu.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit.{" "}
+                {data.text}
               </p>
               <hr className="mt-10 mr-10" />
             </div>
@@ -232,6 +227,8 @@ const ViewOffer = ({data,index}) => {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 };

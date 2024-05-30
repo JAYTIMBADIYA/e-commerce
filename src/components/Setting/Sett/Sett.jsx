@@ -1,6 +1,5 @@
 import React, { useState} from "react";
 import Switch from "@mui/material/Switch";
-import { useNavigate } from "react-router-dom";
 
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
@@ -36,18 +35,6 @@ const Sett = () => {
     },
   ];
 
-  const navigate = useNavigate();
-
-  const handleClick = (route) => {
-    switch (route) {
-        case 'Mycard':
-            navigate('/Mycard');
-            break;
-        default:
-            // Handle default case if needed
-            break;
-    }
-};
 
   return (
     <>
@@ -56,7 +43,7 @@ const Sett = () => {
           <div>
             <ul className="flex gap-2 font-semibold my-9 max-md:mx-[20px]">
               <li className="text-[#DDDFE4]"><a href=""> Home /</a> </li>
-              <li className="text-[#DDDFE4]"><a href="" onClick={() => handleClick('Mycard')}>Account /</a></li>
+              <li className="text-[#DDDFE4]"><a href="">Account /</a></li>
               <li className="text-[#1CC0A0]"><a href="">Settings </a></li>
             </ul>
 

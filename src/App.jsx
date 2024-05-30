@@ -16,8 +16,14 @@ import Mycard from "./components/Mycard/index.jsx";
 import Bell from "./components/Bell/index.jsx";
 import Mylist from "./components/Mylist/index.jsx";
 import Subpart from "./components/Subpart/index.jsx";
+import Mycart from "./components/Mycart/index.jsx";
+import Address from "./components/Mycart/Address/Address.jsx";
+import Cartpro from "./components/Mycart/Cartpro/Cartpro.jsx";
+import Order from "./components/Mycart/Order/Order.jsx";
+import FinalCart from "./components/Mycart/FinalCart/FinalCart.jsx";
 const App = () => {
   return (
+    <>
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -29,15 +35,21 @@ const App = () => {
         <Route path="/Kfc2" element={<Kfc2 />} />
         <Route path="/KfcPro" element={<KfcPro />} />
         <Route path="/contact" element={<Contact/>}/>
-        <Route path="/Information" element={<Information/>}/>
-        <Route path="/Setting" element={<Setting/>}/>
-        <Route path="/MyCard" element={<Mycard />} />
+        <Route path="/profile" element={<Information/>}/>
+        <Route path="/settings" element={<Setting/>}/>
+        <Route path="/mycard" element={<Mycard />} />
         <Route path="/Bell" element={<Bell />}/>
         <Route path="/Mylist" element={<Mylist />}/>
         <Route path="/subitem1" element={<Subpart />}/>
+        <Route path="/Mycart" element={<Mycart/>}/>
+        <Route path="/review-order" element={<Cartpro/>}/>
+        <Route path="/address" element={<Address/>}/>
+        <Route path="/confirm-order" element={<Order />}/>
+        <Route path="/finalcart" element={<FinalCart />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   );
 };
 

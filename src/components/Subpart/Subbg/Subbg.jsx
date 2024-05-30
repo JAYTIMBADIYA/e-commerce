@@ -1,6 +1,8 @@
 import React from "react";
 import Crop from "../../../assets/cropped.png";
 import Profile from "../../../assets/Profile Picture.png";
+import Numbers from "../../home/Numbers/Numbers";
+import News from "../../home/News/News";
 
 const Subbg = () => {
 
@@ -18,11 +20,12 @@ const Subbg = () => {
     
       const currentFormattedDate = getCurrentFormattedDate();
   return (
-    <div className="reletive ">
-      <div>
-        <div>
+    <>
+    <div className="">
+      
+        <div className="relative max-md:h-[400vh]">
           <div
-            className="conta-img bg-no-repeat pb-[250px] pt-10 bg-cover  w-[-webkit-fill-available] mt-10"
+            className="conta-img bg-no-repeat pb-[250px] pt-10 bg-cover  w-[-webkit-fill-available] mt-10" 
             style={{ "background-image": `url(${Crop})` }}
           >
             <div className="text-[40px] font-semibold text-white flex justify-center">
@@ -39,16 +42,16 @@ const Subbg = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        
 
-      <section class="text-gray-600 body-font">
+      <section class="text-gray-600 body-font absolute top-60 ml-28 max-md:ml-1">
+      <div class="container px-5 py-24 mx-auto">
         <div class="container px-5  mx-auto">
           <div class="flex flex-wrap -m-4">
-          <div class="p-4 md:w-1/3">
+          <div class="p-4 md:w-1/3 top-0">
               <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex ">
-                  <div class="w-20 h-20 mr-3  rounded-full">
+                <div class="flex">
+                  <div class="w-20 h-20 mr-3 rounded-full">
                     <img src={Profile} alt="" />
                   </div>
                   <h2 class="text-[#223263] font-semibold text-lg mt-1 ">
@@ -128,8 +131,19 @@ const Subbg = () => {
             </div>
           </div>
         </div>
+        </div>
       </section>
+      </div>
     </div>
+
+    <div className="mt-[300px]">
+      <Numbers/>
+    </div>
+    <div className="my-7">
+      <News/>
+    </div>
+
+    </>
   );
 };
 
