@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState} from "react";
 import Han from "../../../assets/Hand-1.png";
 import Tot from "../../../assets/Total-1.png";
 import Che from "../../../assets/Check-1.png";
 import Cam from "../../../assets/IMAGE-105.png";
+import ImagePicker from 'react-image-picker-editor';
+import 'react-image-picker-editor/dist/index.css';
 
 const Perinfo = () => {
+  const [image, setImage] = useState(Cam);
+
+  const handleImageChange = (newDataUri) => {
+    setImage(newDataUri);
+  };
   return (
     <div className="h-[auto]">
       <div className="supply bg-[#C4EEE6]">
@@ -48,8 +55,12 @@ const Perinfo = () => {
       </div>
       <div className="">
         <div className="mx-[160px] max-md:mx-[50px]">
-          <div className="w-[200px] h-[200px]">
-            <img src={Cam} alt="" />
+          <div className="w-[200px] h-[200px] mb-20">
+            <ImagePicker 
+               config={{ borderRadius:'50%', width: '200px', height:'200px'  }}
+               imageSrcProp={image}
+               imageChanged={handleImageChange}
+             />
           </div>
           <div className="">
             <div className="flex gap-5 mt-5 text-2xl font-semibold">

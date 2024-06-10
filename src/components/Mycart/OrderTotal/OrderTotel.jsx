@@ -1,6 +1,10 @@
 import React from 'react'
 
 const OrderTotel = ({ subtotal, taxes, total, onPromoCode, onCheckout }) => {
+
+    subtotal = isNaN(subtotal) ? 0 : subtotal;
+    taxes = isNaN(taxes) ? 0 : taxes;
+    total = isNaN(total) ? 0 : total;
   return (
     <div>
         <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl mt-4 py-3 px-4 max-md:py-2 max-md:px-3">

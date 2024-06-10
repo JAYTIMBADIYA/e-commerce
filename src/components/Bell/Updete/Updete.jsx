@@ -66,15 +66,8 @@ const Updete = ({ notifications }) => {
 
   return (
     <div>
-         {/* <a href="" onClick={() => bellClick("Bell")} className="relative">
-                {bell.length > 0 && (
-                    <span className="absolute top-[-80px] left-[1160px] inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
-                        {bell.length}
-                    </span>
-                )}
-        </a> */}
         {notifications.map((item,index)=>(
-            <div className="w-[70%] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ml-52 rounded-xl mt-7" key={index}>
+            <div className=" z-20 w-[70%] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ml-52 rounded-xl mt-7" key={index}>
                 <div className="flex">
                   <div className={ `w-[150px] h-[113px] ${index < 7 ? 'bg-[#1CC0A0]' : 'bg-[#DDDFE4]'} rounded-l-lg flex justify-center p-3 px-10`}>
                     <img src={item.poc} alt="" className="w-[50px] h-[70px] mt-2" />

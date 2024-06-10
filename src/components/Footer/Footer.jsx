@@ -5,10 +5,6 @@ import Abo4 from '../../assets/App Store.png'
 
 const Footer = () => {
 
-
-
- 
-
   return (
     <>
     <div className='footer bg-[#312B3E] px-10 py-10 '>

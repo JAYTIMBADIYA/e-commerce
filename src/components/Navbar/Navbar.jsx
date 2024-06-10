@@ -6,7 +6,7 @@ import Face from "../../assets/Ellipse 94.png";
 import Updete from '../Bell/Updete/Updete';
 import Noto from "../../assets/Noto.png";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
   
   const [activeMenuItem, setActiveMenuItem] = useState("/");
   // const [showMenu, setShowMenu] = useState(0);
@@ -337,6 +337,11 @@ const Navbar = () => {
             </a>
             <a href="#" onClick={() => {likeClick('Mycart'); setActiveIcon('Mycart');}} className={`relative ${activeIcon === "Mycart" ? "text-[#43385B]" : ""}`} >
               <i className="fa-solid fa-cart-shopping max-xl:hidden"></i>
+              {cartCount > 0 && (
+                <span className="absolute top-[-10px] right-[-10px] inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#1CC0A0] rounded-full">
+                  {cartCount}
+                </span>
+              )}
             </a>
           </div>
           {/* navber last */}
@@ -351,10 +356,10 @@ const Navbar = () => {
               100 Points
             </h5>
             {showFacePopup && (
-              <div className="absolute top-16 right-0 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
+              <div className="absolute top-16 right-0 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-50">
                 <ul>
                   <li>
-                    <a href="#" onClick={() => handleItemClick("/profile")} className={`block px-4 py-2 font-semibold ${
+                    <a href="#" onClick={() => handleItemClick("/profile")} className={`block px-4 py-2 font-semibold z-50 ${
                         activeFaceMenuItem === "/profile" ? "text-[#1CC0A0]" : "text-gray-600"
                       } hover:bg-[#C4EEE6]`}>
                       Profile
@@ -380,7 +385,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {showBellMenu && <Updete notifications={notifications} />}
+      {showBellMenu && (
+        <div className="bell-menu" ref={bellMenuRef}>
+          <Updete notifications={notifications} />
+        </div>
+      )}  
     </>
   );
 };

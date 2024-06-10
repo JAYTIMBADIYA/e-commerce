@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -22,14 +22,23 @@ import Cartpro from "./components/Mycart/Cartpro/Cartpro.jsx";
 import Order from "./components/Mycart/Order/Order.jsx";
 import FinalCart from "./components/Mycart/FinalCart/FinalCart.jsx";
 const App = () => {
+  // const [cartCount, setCartCount] = useState(0);
+  const [ cartItems, setCartItems ] = useState([]);
+
+  const addToCart = (item) => {
+    // setCartCount(cartCount + 1);
+    setCartItems([...cartItems, item]);
+  }
+
+
   return (
     <>
     <BrowserRouter>
-      <Navbar />
+      <Navbar cartCount={cartItems.length}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/alloffers" element={<AllOffer />} />
-        <Route path="/viewoffer" element={<ViewOffer />} />
+        <Route path="/viewoffer" element={<ViewOffer addToCart={addToCart}/>} />
         <Route path="/partner" element={<Partner />} />
         <Route path="/merchants" element={<Mainkfc />}/>
         <Route path="/Kfc2" element={<Kfc2 />} />
@@ -42,7 +51,7 @@ const App = () => {
         <Route path="/Mylist" element={<Mylist />}/>
         <Route path="/subitem1" element={<Subpart />}/>
         <Route path="/Mycart" element={<Mycart/>}/>
-        <Route path="/review-order" element={<Cartpro/>}/>
+        <Route path="/review-order" element={<Cartpro cartItems={cartItems} />}/>
         <Route path="/address" element={<Address/>}/>
         <Route path="/confirm-order" element={<Order />}/>
         <Route path="/finalcart" element={<FinalCart />}/>

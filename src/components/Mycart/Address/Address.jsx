@@ -35,7 +35,7 @@ const Address = () => {
   return (
     <div>
       <Cart1st currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      <div className="address-content">
+      <div className="address-content mb-10">
         <div className="mx-10 max-md:mx-1">
           <div className="flex max-md:justify-center">
             <div className="basis-3/4">

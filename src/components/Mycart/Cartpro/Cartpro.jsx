@@ -7,7 +7,6 @@ import Cart1st from "../Cart1st/Cart1st";
 
 const Cartpro = ({ cartItems }) => {
   const [currentStep, setCurrentStep] = useState(1);
-
   const navigate = useNavigate();
 
   const handleClick = (route) => {
@@ -57,7 +56,7 @@ const Cartpro = ({ cartItems }) => {
       );
     };
 
-    const subtotal = counts.reduce((sum, count, index) => sum + count * cartItems[index].qr, 0);
+    const subtotal = cartItems.reduce((sum, item, index) => sum + counts[index] * item.totalValue, 0);
     const taxes = subtotal * 0.05; // Example tax calculation (5% of total)
     const total = subtotal + taxes;
 
@@ -89,21 +88,21 @@ const Cartpro = ({ cartItems }) => {
                   <div className="basis-1/2">
                     <div>
                       <div className="text-center">
-                        <p className="font-semibold text-[#999CAD] max-md:ml-36">{item.it}</p>
+                        <p className="font-semibold text-[#999CAD] max-md:ml-36">Product</p>
                       </div>
                     </div>
                   </div>
                   <div className="basis-1/4">
                     <div>
                       <div className="text-center max-md:hidden">
-                        <p className="font-semibold text-[#999CAD]">{item.qua}</p>
+                        <p className="font-semibold text-[#999CAD]">Quantity</p>
                       </div>
                     </div>
                   </div>
                   <div className="basis-1/4">
                     <div>
                       <div className="text-center max-md:hidden">
-                        <p className="font-semibold text-[#999CAD]">{item.pri}</p>
+                        <p className="font-semibold text-[#999CAD]">Price</p>
                       </div>
                     </div>
                   </div>
@@ -114,16 +113,16 @@ const Cartpro = ({ cartItems }) => {
                     style={{ background:"linear-gradient(to bottom, #2DC8D8, #ECF281)"}}
                     className="discount w-[8%] absolute font-semibold text-sm pl-3 border-2 rounded-r-lg px-1 max-md:hidden"
                   >
-                    <h2 className="text-white"> {item.off} <br /> {item.poi} </h2>
+                    <h2 className="text-white"> +10 <br /> Point </h2>
                   </div>
                   <div className="flex flex-wrap">
                     <div className="max-md:hidden">
-                      <img src={item.pic}  alt="" className="mt-3 w-[160px] h-[130px] ml-4"/>
+                      <img src={item.cen_img} alt={item.head} className="mt-3 w-[160px] h-[130px] ml-4"/>
                     </div>
                     <div className="w-[30%] max-md:w-[100%]">
                       <div className="mt-2 ml-2 max-md:text-center">
                         <h1 className="text-xl font-semibold">{item.head}</h1>
-                        <p className="mt-2 text-[#999CAD]">{item.hedid}</p>
+                        <p className="mt-2 text-[#999CAD]">{item.text}</p>
                       </div>
                     </div>
                     <div className="bill ml-24 mt-3">
@@ -134,7 +133,7 @@ const Cartpro = ({ cartItems }) => {
                         >
                           <i class="fa-solid fa-plus"></i>
                         </button>
-                        <p className="mt-1 font-semibold">{counts[index]}</p>
+                        <p className="mt-1 font-semibold">{item.count}</p>
                         <button className="p-1 rounded-full bg-white" onClick={() => updateQuantity(index, -1)}>
                           <i class="fa-solid fa-minus"></i>
                         </button>
@@ -142,12 +141,12 @@ const Cartpro = ({ cartItems }) => {
                     </div>
                     <div className="ml-20 mt-4">
                         <div className="flex gap-3 ml-14">
-                            <h3 className="text-xl font-semibold">{item.qr * counts[index]} QAR</h3>
-                            <a href="" className="mt-1"><i class="fa-solid fa-trash"></i></a>
+                            <h3 className="text-xl font-semibold">{item.totalValue} QAR</h3>
+                            <a href="" className="mt-1" ><i class="fa-solid fa-trash"></i></a>
                         </div>
                         <div className="flex gap-2 text-[#1CC0A0] font-semibold mt-16 max-md:mt-8 max-md:text-center">
                             <a href=""><i class="fa-solid fa-arrow-left"></i></a>
-                            <h2 className="cursor-pointer" onClick={() => handleClick('alloffers')} >{item.shop}</h2>
+                            <h2 className="cursor-pointer" onClick={() => handleClick('alloffers')} >Continue shopping</h2>
                         </div>
                     </div>
                   </div>
@@ -165,40 +164,6 @@ const Cartpro = ({ cartItems }) => {
                 onPromoCode={handlePromoCode}
                 onCheckout={handleCheckout}
               />
-                {/* <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl mt-4 py-3 px-4 max-md:py-2 max-md:px-3">
-                    <div>
-                        <div>
-                            <h2 className="font-semibold text-xl" >Order Totel</h2>
-                        </div>
-                        <hr className="mt-2"/>
-                        <div className="my-10 max-md:my-3">
-                            <div className="flex justify-between font-semibold text-[#999CAD] text-[16px]">
-                                <p>Subtotal:</p>
-                                <h5>{subtotal} QAR</h5> 
-                            </div>
-                            <div className="flex justify-between font-semibold text-[#999CAD] mt-3 text-[16px]">
-                                <p>Taxes:</p>
-                                <h5>{taxes.toFixed(2)} QAR</h5>
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                            <div className="flex justify-between font-semibold mt-3 text-[16px]">
-                                <p>Total:</p>
-                                <h5>{total.toFixed(2)} QAR</h5>
-                            </div>
-                        </div>
-                        <div className="text-center mt-12 mb-5 max-md:mt-7">
-                            <button className="bg-[#ffffff] text-[#1CC0A0] border-2 border-[#1CC0A0] px-10  py-3 rounded-md ">
-                                I have a promo code
-                            </button>
-
-                            <button className="bg-[#FFB800] text-[#ffffff] mt-6 px-10  py-3 rounded-md ">
-                                Process Checkout
-                            </button>
-                        </div>
-                    </div>
-                </div> */}
             </div>
           </div>
         </div>

@@ -1,29 +1,25 @@
-import React, { useRef } from "react";
-import { useLocation } from 'react-router-dom';
+import React, { useRef , useState } from "react";
+import { useLocation , useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
-import kfc from "../../../assets/image 92.png";
-import king from '../../../assets/Whopper Wednrsday.png'
-import Lo1 from "../../../assets/lo-1.png";
-import Lo2 from '../../../assets/Burger_King_logo_(1999) 1.png'
-// import { useCart } from "../../Mycart/CartContext/CartContext";
 
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 
-const ViewOffer = () => {
+const ViewOffer = ({ addToCart }) => {
+  // const item = {};
+
+
   const location = useLocation();
   const { data, index } = location.state;
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
 
   const [count, setCount] = useState(1);
   const [totalValue, setTotalValue] = useState(10); 
   
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-    // Redirect to the cart page after adding the item
-    navigate('/cart');
-  };
+  // const addToCart = (item) => {
+  //   setCartItems([...cartItems, item]);
+  //   // Redirect to the cart page after adding the item
+  //   navigate('/cart'); 
+  // };
   const handleIncrement = () => {
     const newCount = count + 1;
     setCount(newCount);
@@ -56,6 +52,18 @@ const imgdata = [
   { cen_img: data.cen_img },
   { cen_img: data.cen_img },
 ];
+
+const handleAddToCart = () => {
+  const item = {
+    cen_img: data.cen_img,
+    head: data.head,
+    totalValue,
+    text: data.text,
+    count
+  };
+  addToCart(item);
+  navigate('/review-order');
+};
 
 
 
@@ -173,7 +181,7 @@ const imgdata = [
                 </button>
               </div>
               <div>
-                <button className="mt-1 px-10 py-3 bg-[#1CC0A0] text-white font-semibold rounded-md" onClick={() => addToCart(item)}>
+                <button className="mt-1 px-10 py-3 bg-[#1CC0A0] text-white font-semibold rounded-md" onClick={handleAddToCart}>
                   Add to cart
                 </button>
               </div>
