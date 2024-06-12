@@ -168,7 +168,7 @@ const handleAddToCart = () => {
               <h5 className="font-semibold">{totalValue}</h5>
             </div>
             <div className="flex flex-wrap mt-7 gap-20">
-              <div className="additem flex  gap-10 text-2xl  bg-[#F5F5F5] rounded-full w-[180px] p-1 justify-center text-center">
+              <div className="bon flex  gap-10 text-2xl  bg-[#F5F5F5] rounded-full w-[180px] p-1 justify-center text-center">
                 <button
                   className="p-1 rounded-full bg-white"
                   onClick={handleIncrement}

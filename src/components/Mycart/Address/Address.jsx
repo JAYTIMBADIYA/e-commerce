@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cart1st from "../Cart1st/Cart1st";
 import OrderTotel from "../OrderTotal/OrderTotel";
 
-const Address = () => {
+const Address = ({}) => {
   const [currentStep, setCurrentStep] = useState(2);
 
   const [cartItems, setCartItems] = useState([

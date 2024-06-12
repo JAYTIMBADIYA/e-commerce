@@ -5,7 +5,7 @@ import OrderTotel from "../OrderTotal/OrderTotel";
 import Cart1st from "../Cart1st/Cart1st";
 
 
-const Cartpro = ({ cartItems }) => {
+const Cartpro = ({ cartItems,onDelete,updateQuantity }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const navigate = useNavigate();
 
@@ -50,11 +50,11 @@ const Cartpro = ({ cartItems }) => {
   } 
     const [counts, setCounts] = useState(cartItems.map(() => 1));
 
-    const updateQuantity = (index, amount) => {
-      setCounts((prevCounts) =>
-        prevCounts.map((count, i) => (i === index ? Math.max(count + amount, 1) : count))
-      );
-    };
+    // const updateQuantity = (index, amount) => {
+    //   setCounts((prevCounts) =>
+    //     prevCounts.map((count, i) => (i === index ? Math.max(count + amount, 1) : count))
+    //   );
+    // };
 
     const subtotal = cartItems.reduce((sum, item, index) => sum + counts[index] * item.totalValue, 0);
     const taxes = subtotal * 0.05; // Example tax calculation (5% of total)
@@ -68,13 +68,7 @@ const Cartpro = ({ cartItems }) => {
       // Handle checkout logic here
     };
 
-    // const decNum = () => {
-    //     if (count > 1) {
-    //       setCount(count - 1);
-    //     } else {
-    //       setCount(1);
-    //     }
-    //   };
+
   return (
     <div className="h-[auto] mt-10 mb-20">
       <Cart1st currentStep={currentStep} setCurrentStep={setCurrentStep} />
@@ -129,12 +123,12 @@ const Cartpro = ({ cartItems }) => {
                       <div className="flex  gap-10 text-2xl  bg-[#F5F5F5] rounded-full p-1 justify-center text-center">
                         <button
                           className="p-1 rounded-full bg-white"
-                          onClick={() => updateQuantity(index , 1)}
+                          disabled
                         >
                           <i class="fa-solid fa-plus"></i>
                         </button>
                         <p className="mt-1 font-semibold">{item.count}</p>
-                        <button className="p-1 rounded-full bg-white" onClick={() => updateQuantity(index, -1)}>
+                        <button className="p-1 rounded-full bg-white" onClick={() => updateQuantity(index,item.count - 1)} disabled={item.count <= 1}>
                           <i class="fa-solid fa-minus"></i>
                         </button>
                       </div>
@@ -142,7 +136,12 @@ const Cartpro = ({ cartItems }) => {
                     <div className="ml-20 mt-4">
                         <div className="flex gap-3 ml-14">
                             <h3 className="text-xl font-semibold">{item.totalValue} QAR</h3>
-                            <a href="" className="mt-1" ><i class="fa-solid fa-trash"></i></a>
+                            <button onClick={() => onDelete(index)} className="mt-1">
+                              <i className="fa-solid fa-trash"></i>
+                            </button>
+
+                            
+                            {/* <a href="" className="mt-1" ><i class="fa-solid fa-trash"></i></a> */}
                         </div>
                         <div className="flex gap-2 text-[#1CC0A0] font-semibold mt-16 max-md:mt-8 max-md:text-center">
                             <a href=""><i class="fa-solid fa-arrow-left"></i></a>
@@ -169,7 +168,7 @@ const Cartpro = ({ cartItems }) => {
         </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Cartpro;

@@ -30,6 +30,23 @@ const App = () => {
     setCartItems([...cartItems, item]);
   }
 
+  const handleDelete = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
+  };
+
+  const updateQuantity = (index, newCount) => {
+    const updatedItems = cartItems.map((item, i) => {
+      if (i === index) {
+        const newTotalValue = (item.totalValue / item.count) * newCount;
+        return { ...item, count: newCount, totalValue: newTotalValue };
+      }
+      return item;
+    });
+    setCartItems(updatedItems);
+  };
+
 
   return (
     <>
@@ -51,7 +68,7 @@ const App = () => {
         <Route path="/Mylist" element={<Mylist />}/>
         <Route path="/subitem1" element={<Subpart />}/>
         <Route path="/Mycart" element={<Mycart/>}/>
-        <Route path="/review-order" element={<Cartpro cartItems={cartItems} />}/>
+        <Route path="/review-order" element={<Cartpro cartItems={cartItems} onDelete={handleDelete} updateQuantity={updateQuantity}/>}/>
         <Route path="/address" element={<Address/>}/>
         <Route path="/confirm-order" element={<Order />}/>
         <Route path="/finalcart" element={<FinalCart />}/>
